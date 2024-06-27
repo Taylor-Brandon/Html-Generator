@@ -2,7 +2,7 @@ const inquirer = require('inquirer');
 const fs = require('fs');
 
 
-const createHtml = ({ name, location, linkedIn, github }) => 
+const createHtml = ({ name, location, hobbie, linkedIn, github }) => 
 `<!DOCTYPE html>
 <html lang="en">
 
@@ -18,6 +18,7 @@ const createHtml = ({ name, location, linkedIn, github }) =>
         <div class="container-fluid bg-secondary">
             <h1 class="text-center">Welcome! My name is ${name}!</h1>
             <h2 class="text-center">I am located in ${location}.</h2>
+            <h4 class="text-center">One of my hobbies include ${hobbie}.<h4>
             <h4 class="text-center border border-light rounded w-25 h-50 mx-auto bg-light">Contact Me<i class="bi bi-arrow-down p-2"></i></h4>
             <ul class="list-group w-25 text-center mx-auto p-4">
                 <li class="list-group-item">${linkedIn}</li>
@@ -38,6 +39,11 @@ inquirer
             type: 'input',
             message: 'Where are you located?',
             name: 'location'
+        },
+        {
+            type: 'input',
+            message: 'What is one of your hobbies?',
+            name: 'hobbie',
         },
         {
             type: 'input',
