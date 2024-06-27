@@ -49,6 +49,12 @@ inquirer
             message: 'What is your Github username?',
             name: 'github',
         }
-    ]);
+    ])
 
-    
+
+.then((answers) => {
+    const htmlContent = createHtml(answers);
+
+    fs.writeFile('index.html', htmlContent, (err) =>
+    err? console.log(err) : console.log('Success!'));
+})
