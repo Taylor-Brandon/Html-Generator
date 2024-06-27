@@ -1,3 +1,7 @@
+const inquirer = require('inquirer');
+const fs = require('fs');
+
+
 const createHtml = ({ name, location, linkedIn, github }) => 
 `<!DOCTYPE html>
 <html lang="en">
@@ -22,3 +26,29 @@ const createHtml = ({ name, location, linkedIn, github }) =>
         </div>
     </body>
     </html>`;
+
+inquirer
+    .prompt([
+        {
+        type: 'input',
+        message: 'What is your name?',
+        name: 'name',
+        },
+        {
+            type: 'input',
+            message: 'Where are you located?',
+            name: 'location'
+        },
+        {
+            type: 'input',
+            message: 'What is your linkedIn Url?',
+            name: 'linkedIn',
+        },
+        {
+            type: 'input',
+            message: 'What is your Github username?',
+            name: 'github',
+        }
+    ]);
+
+    
